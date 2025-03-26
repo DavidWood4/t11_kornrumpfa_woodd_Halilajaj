@@ -12,39 +12,47 @@ ___
 
 ```
     |                 | Monday | Wednesday | Friday |
-    |-----------------|--------|-----------|--------|
-    | Driver          |        |           |        |
-    | Navigator       |        |           |        |
-    | Quality Control |        |           |        |
+    |-----------------|--------|-----------|---------|
+    | Driver          | ANT    | ARBY                | DAVID  |
+    | Navigator       | DAVID  | ARBY//DAVID = *     | *      |
+    | Quality Control | ARBY   | DAVID//ARBY = *     | *      |
 ```
 
 ___
 
 ## SECTION 2
 
-2.a. Look at the three Python files in the repository. Identify below all of the classes, and a brief description of
+2.a. Look at the three Python files in the repository. 
+    Identify below all of the classes, and a brief description of
     what each one represents:
 
 ```
-    **Replace This Text With Your Response**
+In the files: player.py, game.py, and NPC.py
+
+    Classes:
+       Player # Represents the character in game AND handles the movement of the player. 
+       NPC # Represents the NPC in game AND handles the movement of the NPC.
+       Game # Imports the classes from the other files. Game class for handling the game logic. 
+            - What is the game logic?
 ```
 
-2.b. Look more closely at the **t11_game.py** file. There are 8 lines; identify if they are 
-    a) instance parameters
-    b) method calls within the class
-    c) method calls to another class or library
+2.b. Look more closely at the **t11_game.py** file. 
+There are 8 lines; identify if they are 
+    a) instance parameters, defined as: a type of input that allows for the creation of object instances? I.e. Instantiation. 
+    b) method calls within the class, defined as:
+    c) method calls to another class or library, defined as: 
 
 (Some are more than one answer!)
 
 ```
-    self.size = 800, 600                              # **Replace This Text With Your Response**
-    self.running = True                               # **Replace This Text With Your Response**
-    pygame.init()                                     # **Replace This Text With Your Response**
-    self.screen = pygame.display.set_mode(self.size)  # **Replace This Text With Your Response**
-    self.clock = pygame.time.Clock()                  # **Replace This Text With Your Response**
-    self.player = Player(self.size)                   # **Replace This Text With Your Response**
-    self.good_npc = NPC(self.size)                    # **Replace This Text With Your Response**
-    self.screen.fill('#9CBEBA')                       # **Replace This Text With Your Response**
+    self.size = 800, 600                              # This creates the window and resolution. Is it [a,b,c]? | Instance paramter
+    self.running = True                               # Is it [a,b,c]?
+    pygame.init()                                     # Is it [a,b,c]?
+    self.screen = pygame.display.set_mode(self.size)  # Is it [a,b,c]?
+    self.clock = pygame.time.Clock()                  # Is it [a,b,c]?
+    self.player = Player(self.size)                   # Is it [a,b,c]?
+    self.good_npc = NPC(self.size)                    # Is it [a,b,c]?
+    self.screen.fill('#9CBEBA')                       # Is it [a,b,c]?
 ```
 
 2.c. Parse through the `run()` method of **t11_game.py**. In particular, note how the game handles 

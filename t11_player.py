@@ -19,7 +19,7 @@
 import pygame
 
 
-class Player(pygame.sprite.Sprite):
+class Player(pygame.sprite.Sprite): # Not much to do here, allows for movement
     def __init__(self, screen_size):
         """
         Represents the player in the game.

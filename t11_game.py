@@ -53,7 +53,7 @@ class Game:
                 # Collision! Prints the game ending text to the screen.
                 font = pygame.font.SysFont("ComicSans", 36)
                 txt = font.render('Taco, you caught me!!', True, "darkblue")
-                self.screen.blit(txt, (self.size[0]//2, self.size[1]-100))
+                self.screen.blit(txt, (self.size[0]//2, self.size[1]-100)) #Blit allows the object to be erased, and not to leave traces.
             else:
                 # Keep playing!
                 self.tuna.movement(pygame.key.get_pressed())
@@ -61,8 +61,8 @@ class Game:
                 self.screen.fill('#9CBEBA')
                 self.screen.blit(self.tuna.surf, self.tuna.rect)
                 self.screen.blit(self.tacocat.surf, self.tacocat.rect)
-            pygame.display.update()
-            self.clock.tick(24)
+            pygame.display.update() # Ref: 61,62,63 preloading the game, 64 actually loads.
+            self.clock.tick(50) # Modify the clock speed.
 
         pygame.quit()
 
