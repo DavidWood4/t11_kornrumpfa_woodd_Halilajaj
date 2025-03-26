@@ -7,7 +7,7 @@ Please replace each `**Replace This Text With Your Response**` with your answer.
 ___
 
 ## SECTION 1
-
+#
 1.a. First, discuss with your team and assign yourselves roles. Try to pick the role you’ve had the least experience in.
 
 ```
