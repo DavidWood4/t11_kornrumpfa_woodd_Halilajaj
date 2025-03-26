@@ -45,14 +45,14 @@ There are 8 lines; identify if they are
 (Some are more than one answer!)
 
 ```
-    self.size = 800, 600                              # This creates the window and resolution. Is it [a,b,c]? | Instance paramter
-    self.running = True                               # Is it [a,b,c]?
-    pygame.init()                                     # Is it [a,b,c]?
-    self.screen = pygame.display.set_mode(self.size)  # Is it [a,b,c]?
-    self.clock = pygame.time.Clock()                  # Is it [a,b,c]?
-    self.player = Player(self.size)                   # Is it [a,b,c]?
-    self.good_npc = NPC(self.size)                    # Is it [a,b,c]?
-    self.screen.fill('#9CBEBA')                       # Is it [a,b,c]?
+    self.size = 800, 600                              # This creates the window and resolution. Is it [a,b,c]? - a | Instance paramter
+    self.running = True                               # b
+    pygame.init()                                     # c
+    self.screen = pygame.display.set_mode(self.size)  # a, c
+    self.clock = pygame.time.Clock()                  # a, c
+    self.player = Player(self.size)                   # a, c
+    self.good_npc = NPC(self.size)                    # a, c
+    self.screen.fill('#9CBEBA')                       # a
 ```
 
 2.c. Parse through the `run()` method of **t11_game.py**. In particular, note how the game handles 
@@ -64,10 +64,12 @@ There are 8 lines; identify if they are
 In your own words, describe how the four items above are accomplished in the Game class:
 
 ```
-    a) **Replace This Text With Your Response**
-    b) **Replace This Text With Your Response**
-    c) **Replace This Text With Your Response**
-    d) **Replace This Text With Your Response**
+    a) Line 52 checks for collision between tuna and tacocat. It is first set to false so that way when the sprites collide
+    it will return True and mean that they found each other and print out the text intended below.
+    b) Line 59 and 60, so tuna is going to wherever the key is pressed. Their movements are called from "movement" methods
+    from different classes. It's just the names of the methods that are the same.
+    c) Line 56 allows for the program to erase objects and not leave any traces.
+    d) Line 65, because for each second it will reset 50 times.
 ```
 
 _Return to the Google Doc to continue the assignment._
@@ -80,7 +82,7 @@ _Return to the Google Doc to continue the assignment._
      How do you know?
 
 ```
-    **Replace This Text With Your Response**
+    It inherits from pygame as seen in line 22: Class Player(pygame.sprite.Sprite):.
 ```
 
 3.b. Sprites need two attributes to function: A surface and a rectangle. The surface (implemented in a `Surface` 
@@ -90,13 +92,20 @@ _Return to the Google Doc to continue the assignment._
      and explain what each line does. 
 
 ```
-    **Replace This Text With Your Response**
+    From t11_NPC we get surface from line 34, and from t11_player line 32 - it loads the image from the png loaded in the 
+    program, and then convert_alpha is used to convert surfaces to the same pixel format as used by the screen.
+    From t11_NPC we get rectangle from line 36, and from t11_player line 34 - it manages the positioning of the surfaces
+    and checks for collisions.
 ```
 
 3.c. The `Player` class has only one method so far. Parse that code and docstring, and describe what it does:
 
 ```
-    **Replace This Text With Your Response**
+    if keys[pygame.K_UP]: - if the up key is pressed
+        self.rect.move_ip(0, -3) - it gets the current position of the rectangle and moves it by the unit defined inside
+                                    the parentheses
+    the same applies for the codes below it if the up key isn't pressed, the down would be pressed
+    There are two if statements which check for up and down, or right and left.
 ```
 
 3.d. Similarly, the `NPC` class in **t11_NPC.py** also inherits the `Sprite` class from **pygame**, 
