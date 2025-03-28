@@ -19,7 +19,7 @@
 import pygame
 
 
-class Player(pygame.sprite.Sprite):
+class Player(pygame.sprite.Sprite): # Not much to do here, allows for movement
     def __init__(self, screen_size):
         """
         Represents the player in the game.
@@ -42,7 +42,7 @@ class Player(pygame.sprite.Sprite):
         :param keys: key presses from pygame event listener
         :return: None
         """
-        if keys[pygame.K_UP]:
+        if keys[pygame.K_UP]: #
             self.rect.move_ip(0, -3)
         elif keys[pygame.K_DOWN]:
             self.rect.move_ip(0, 3)
