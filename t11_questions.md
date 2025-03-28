@@ -112,14 +112,23 @@ _Return to the Google Doc to continue the assignment._
      but it does a little more than our `Player` class. Compare the two classes, and identify/describe the differences:
 
 ```
-    **Replace This Text With Your Response**
+    The `NPC` class is more autonomous, it moves on its own and includes logic to keep itself within screen bounds by 
+    `get_direction()`. It also randomly changes direction. The `Player` class, on the other hand, is controlled 
+    entirely by user input through key presses and does not contain any screen-bound checking logic—it assumes the 
+    player will stay within bounds. Also, the `NPC` class uses a `path` attribute to determine direction, while the 
+    `Player` class checks real-time keyboard inputs to move.
+
 ```
 
 3.e. Of particular interest is how we keep the `NPC` on the screen. Describe how we're using 
     the `self.rect` attribute in the `get_direction()` method to keep the `NPC` visible.  
 
 ```
-    **Replace This Text With Your Response**
+    The `get_direction()` method checks if the NPC’s rectangle (self.rect) goes out of screen bounds. If so, it 
+    updates the `path` attribute to reverse or change direction, for example if it hits the bottom of the screen, 
+    it moves north). This prevents the NPC from moving off-screen and ensures it stays visible by adjusting 
+    movement before drawing.
+
 ```
 
 _Return to the Google doc to continue the assignment._ 
