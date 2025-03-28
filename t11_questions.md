@@ -145,7 +145,7 @@ instead of an NPC. Debug any errors you get; the program should work, at this po
 4.a. How hard was it to create the child class, given the parent?
 
 ```
-    **Replace This Text With Your Response**
+    ** The good NPC was easy to implement but we had some troubles getting the movement in the Bad NPC**
 ```
 
 The parent class `NPC` currently holds attributes like the image used, which are actually more specific to 

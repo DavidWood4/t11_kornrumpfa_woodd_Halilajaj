@@ -17,7 +17,7 @@
 ####################################################################################
 
 import pygame
-from t11_NPC import NPC
+from t11_NPC import Good_NPC,Bad_NPC
 from t11_player import Player #
 
 
@@ -33,7 +33,8 @@ class Game:
         self.screen.fill('#9CBEBA')
         self.clock = pygame.time.Clock()
         self.tuna = Player(self.size)
-        self.tacocat = NPC(self.size)
+        self.tacocat = Good_NPC(self.size)
+        self.whiskers = Bad_NPC(self.size)
 
 
     def run(self):
@@ -54,13 +55,20 @@ class Game:
                 font = pygame.font.SysFont("ComicSans", 36)
                 txt = font.render('Taco, you caught me!!', True, "darkblue")
                 self.screen.blit(txt, (self.size[0]//2, self.size[1]-100)) #Blit allows the object to be erased, and not to leave traces.
+            elif pygame.sprite.spritecollide(self.tuna, [self.whiskers], False):
+                # Collision! Prints the game ending text to the screen.
+                font = pygame.font.SysFont("ComicSans", 36)
+                txt = font.render('Whiskers, you caught me!!', True, "darkblue")
+                self.screen.blit(txt, (self.size[0]//2, self.size[1]-100))
             else:
                 # Keep playing!
                 self.tuna.movement(pygame.key.get_pressed())
                 self.tacocat.movement()
+                self.whiskers.movement()
                 self.screen.fill('#9CBEBA')
                 self.screen.blit(self.tuna.surf, self.tuna.rect)
                 self.screen.blit(self.tacocat.surf, self.tacocat.rect)
+                self.screen.blit(self.whiskers.surf, self.whiskers.rect)
             pygame.display.update() # Ref: 61,62,63 preloading the game, 64 actually loads.
             self.clock.tick(50) # Modify the clock speed.
 
