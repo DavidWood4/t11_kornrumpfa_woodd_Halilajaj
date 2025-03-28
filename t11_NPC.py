@@ -133,29 +133,32 @@ class Bad_NPC(NPC):
         self.surf = pygame.image.load('images/whiskers.png').convert_alpha()
         self.surf.set_colorkey((255, 255, 255), pygame.RLEACCEL)
         self.rect = self.surf.get_rect()
-        self.rect.move_ip(self.screen_size[0] // 4, self.screen_size[1] // 4)
+        self.rect.move_ip(0,screen_size[1] - self.rect.height) #top left
+        self.path = "east" #start right
 
     def get_direction(self):
         """
-        Keeps the NPC on the screen.
+        Keeps the NPC moving in a boustrophedon pattern.
 
         :return: None
         """
-        if self.rect.bottom >= self.screen_size[1]:
-            # Bottom
-            self.path = "north"
-        if self.rect.top <= 0:
-            # Top
-            self.path = "south"
+        # if self.rect.bottom >= self.screen_size[1]:
+        #     # Bottom
+        #     self.path = "north"
+        # if self.rect.top <= 0:
+        #     # Top
+        #     self.path = "south"
         if self.rect.left <= 0:
             # Left
+            self.rect.move_ip(0, -self.move_distance)
             self.path = "east"
-            self.rect.move_ip(0,-3)
+            # self.rect.move_ip(0,-3)
 
         if self.rect.right >= self.screen_size[0]:
             # Right
+            self.rect.move_ip(0, -self.move_distance)
             self.path = "west"
-            self.rect.move_ip(0,-3)
+            # self.rect.move_ip(0,-3)
 
 
 
@@ -165,16 +168,18 @@ class Bad_NPC(NPC):
 
         :return: None
         """
-        pos_x = self.position[1]
+        # pos_x = self.position[1]
         if self.path == "north":
             self.rect.move_ip(0, -self.move_distance)
-            self.position[1] -= self.move_distance
+            # self.position[1] -= self.move_distance
         elif self.path == "south":
             self.rect.move_ip(0, self.move_distance)
-            self.position[1] += self.move_distance
+            # self.position[1] += self.move_distance
         if self.path == "east":
             self.rect.move_ip(self.move_distance, 0)
-            self.position[0] -= self.move_distance
+            # self.position[0] += self.move_distance
         if self.path == "west":
             self.rect.move_ip(-self.move_distance, 0)
-            self.position[0] += self.move_distance
+            # self.position[0] -= self.move_distance
+
+        self.get_direction()

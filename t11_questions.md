@@ -46,13 +46,13 @@ There are 8 lines; identify if they are
 
 ```
     self.size = 800, 600                              # This creates the window and resolution. Is it [a,b,c]? - a | Instance paramter
-    self.running = True                               # b
+    self.running = True                               # a
     pygame.init()                                     # c
     self.screen = pygame.display.set_mode(self.size)  # a, c
     self.clock = pygame.time.Clock()                  # a, c
     self.player = Player(self.size)                   # a, c
     self.good_npc = NPC(self.size)                    # a, c
-    self.screen.fill('#9CBEBA')                       # a
+    self.screen.fill('#9CBEBA')                       # b, c
 ```
 
 2.c. Parse through the `run()` method of **t11_game.py**. In particular, note how the game handles 
@@ -166,7 +166,15 @@ make a design choice. We could:
      choice and why: 
 
 ```
-    **Replace This Text With Your Response**
+    Sure! Here's the answer written in your voice:
+
+---
+
+We decided to go with **option (a)** — keeping the `movement` method in the `NPC` class and overriding 
+it in `Bad_NPC`. I like this approach because it lets me reuse code from the parent class, but still 
+lets Whiskers have his own unique movement. It also keeps things organized and avoids repeating too 
+much code. One downside is that the base class might have methods that not every child uses, but I 
+think that’s okay since overriding gives us the flexibility we need.
 ```
 
 Finally, we need to create our enemy object, Whiskers. Update **t11_game.py** to:
@@ -184,5 +192,8 @@ Finally, we need to create our enemy object, Whiskers. Update **t11_game.py** to
     How did you overcome them?
 
 ```
-    **Replace This Text With Your Response**
+    One challenge we faced was getting Whiskers to move differently from Taco Cat while still using the 
+    shared `NPC` class. His boustrophedon movement needed custom logic, so we overrode the `movement` and 
+    `get_direction` methods in `Bad_NPC`. We fixed issues like him not showing up or moving by adjusting 
+    his position and carefully testing the logic.
 ```
